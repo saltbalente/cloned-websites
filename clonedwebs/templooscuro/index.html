@@ -1,0 +1,709 @@
+<html><head><style>
+/* ===== UNIVERSAL CSS RESET & BASE STYLES ===== */
+/* This CSS provides consistent styling for any website */
+
+/* CSS Reset - Normalize all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base HTML elements */
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    padding: 0 1rem;
+    color: #222;
+    text-align: center;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 2rem; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+h3 { font-size: 1.75rem; margin-bottom: 1.25rem; }
+h4 { font-size: 1.5rem; margin-bottom: 1rem; }
+h5 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+h6 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+p {
+    margin: 0 0 1rem 0;
+    padding: 0 1rem;
+    text-align: justify;
+}
+
+a {
+    color: #007cba;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: #005a87;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #7c4dff;
+}
+
+/* Lists */
+ul, ol {
+    margin: 0 0 1rem 0;
+    padding: 0 1rem 0 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+
+/* Blockquotes */
+blockquote {
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    border-left: 4px solid #007cba;
+    background-color: #f8f9fa;
+    font-style: italic;
+    color: #555;
+}
+
+/* Code */
+code, pre {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+pre {
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid #ddd;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Form elements */
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 0 2px rgba(0, 124, 186, 0.2);
+}
+
+button {
+    cursor: pointer;
+    background-color: #007cba;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005a87;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Images and media */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Layout containers */
+.container, .wrapper, .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.row, .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.col, .column {
+    flex: 1;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Grid system */
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-center { justify-content: center; align-items: center; }
+.flex-between { justify-content: space-between; }
+.flex-around { justify-content: space-around; }
+.flex-start { justify-content: flex-start; }
+.flex-end { justify-content: flex-end; }
+
+/* Spacing utilities */
+.m-0 { margin: 0; }
+.m-1 { margin: 0.5rem; }
+.m-2 { margin: 1rem; }
+.m-3 { margin: 1.5rem; }
+.m-4 { margin: 2rem; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.font-weight-normal { font-weight: normal; }
+.font-weight-bold { font-weight: bold; }
+.font-weight-light { font-weight: 300; }
+
+/* Color utilities */
+.text-primary { color: #007cba; }
+.text-secondary { color: #666; }
+.text-success { color: #28a745; }
+.text-danger { color: #dc3545; }
+.text-warning { color: #ffc107; }
+.text-info { color: #17a2b8; }
+.text-light { color: #f8f9fa; }
+.text-dark { color: #333; }
+
+/* Background utilities */
+.bg-primary { background-color: #007cba; color: white; }
+.bg-secondary { background-color: #f8f9fa; }
+.bg-light { background-color: #f8f9fa; }
+.bg-dark { background-color: #333; color: white; }
+.bg-white { background-color: white; }
+
+/* Display utilities */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+/* Position utilities */
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed { position: fixed; }
+.position-sticky { position: position: sticky; top: 0; }
+
+/* Width utilities */
+.w-100 { width: 100%; }
+.w-75 { width: 75%; }
+.w-50 { width: 50%; }
+.w-25 { width: 25%; }
+
+/* Height utilities */
+.h-100 { height: 100%; }
+
+/* Border utilities */
+.border { border: 1px solid #ddd; }
+.border-top { border-top: 1px solid #ddd; }
+.border-bottom { border-bottom: 1px solid #ddd; }
+.border-left { border-left: 1px solid #ddd; }
+.border-right { border-right: 1px solid #ddd; }
+.border-0 { border: none; }
+
+.border-radius { border-radius: 4px; }
+.rounded { border-radius: 4px; }
+.rounded-circle { border-radius: 50%; }
+
+/* Shadow utilities */
+.shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.shadow-lg { box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+.shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+
+/* Navigation */
+nav {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 1rem 0.5rem 0;
+}
+
+nav a {
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #f8f9fa;
+    color: #007cba;
+}
+
+/* Header and Footer */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+     
+}
+
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    color: #666;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-footer {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007cba;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005a87;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container, .wrapper, .content {
+        padding: 0 0.5rem;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    
+    .row, .flex-row {
+        margin: 0;
+    }
+    
+    .col, .column {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0 0 0.5rem 0;
+    }
+    
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container, .wrapper, .content {
+        padding: 0 0.25rem;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    a, a:visited {
+        text-decoration: underline;
+    }
+    
+    .d-none, .d-print-none {
+        display: none !important;
+    }
+    
+    .d-print-block {
+        display: block !important;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for accessibility */
+button:focus, input:focus, textarea:focus, select:focus, a:focus {
+    outline: 2px solid #007cba;
+    outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* ===== END OF UNIVERSAL CSS ===== */
+
+
+/* ===== AGGRESSIVE DARK MODE - ALWAYS APPLIED ===== */
+/* This CSS forces dark mode on ALL websites regardless of original design */
+
+/* Universal dark mode application */
+.force-dark-mode,
+.force-dark-mode *,
+.force-dark-mode *::before,
+.force-dark-mode *::after {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    background: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Specific overrides for common problematic elements */
+.force-dark-mode .text-white,
+.force-dark-mode .text-light,
+.force-dark-mode .text-muted {
+    color: #ffffff !important;
+}
+
+.force-dark-mode .bg-white,
+.force-dark-mode .bg-light,
+.force-dark-mode .bg-transparent {
+    background-color: #000000 !important;
+}
+
+.force-dark-mode .bg-dark,
+.force-dark-mode .bg-black {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.force-dark-mode .text-dark,
+.force-dark-mode .text-black {
+    color: #ffffff !important;
+}
+
+/* Form elements in dark mode */
+.force-dark-mode input,
+.force-dark-mode textarea,
+.force-dark-mode select {
+    color: #ffffff !important;
+    background-color: #333333 !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode input::placeholder,
+.force-dark-mode textarea::placeholder {
+    color: #cccccc !important;
+}
+
+/* Links in dark mode */
+.force-dark-mode a,
+.force-dark-mode a:link,
+.force-dark-mode a:visited,
+.force-dark-mode a:hover,
+.force-dark-mode a:active {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+/* Tables in dark mode */
+.force-dark-mode table,
+.force-dark-mode th,
+.force-dark-mode td {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode th {
+    background-color: #333333 !important;
+}
+
+/* Cards in dark mode */
+.force-dark-mode .card,
+.force-dark-mode .card-header,
+.force-dark-mode .card-body,
+.force-dark-mode .card-footer {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode .card-header {
+    background-color: #333333 !important;
+}
+
+/* Navigation in dark mode */
+.force-dark-mode nav,
+.force-dark-mode .navbar,
+.force-dark-mode .menu {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Elementor specific dark mode */
+.force-dark-mode .elementor-section,
+.force-dark-mode .elementor-container,
+.force-dark-mode .elementor-column,
+.force-dark-mode .elementor-widget,
+.force-dark-mode .elementor-text-editor {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+.force-dark-mode .elementor-heading-title {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+/* WordPress specific dark mode */
+.force-dark-mode .site-header,
+.force-dark-mode .site-footer,
+.force-dark-mode .site-main,
+.force-dark-mode .entry-content,
+.force-dark-mode .widget,
+.force-dark-mode .sidebar {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+/* Focus and selection in dark mode */
+.force-dark-mode *:focus {
+    outline-color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode ::selection {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* ===== END AGGRESSIVE DARK MODE ===== */
+</style></head></html>"#9CDXz 4R?Byj;5td;x?5ySҬC?1  %j*WE9UEe4+J_yH")ⷺ56: =M3d26Zz&lt;5#yϔ"R҂T&gt;T{eI]jH`Z^0&lt;01V6|]"ZΩg{T!%EW޹k|d)鏀KA/4..P2yz)k&amp;mx"Z_sm/JhQd,YMoF+f7oMwfas0qpvxЖG149i6 ] *`5ٱ	Oh59̓]3,}:WlW׿LxG|&gt;z&gt;Y؂.kn'߀Dj$.2UF£5ndc;.~1q*'r	y}tC_bk
+cl7IX~pڄ|wXefMPlf 3 x"?IV	!VfI6f돚ZGc&amp;qV)sX
+	i}ӶĒH0c*ns+M?I9*N]R\^p76GB9J
+4P4)CYAۖVH
+KsZrTP -A29Hd2o)Aҕ9וFAJ{nA:RoY Itۥ́iנ=W
+R(x%ք n%Z0(H&lt;:Remh̡s\w2¸Id.g&lt;\՗p!SSMW}{q7ߏM0[}1"Nf'CÕzT5ow`<cs9`gek;}3{a4|yv&ibu%&n ="" '@qr="" ,recӫ="" 4y="" 68j{:c]*)2\eef-u9g{]l="" 6f @cܕ8{cym;vllv엿p="" _τ<܈o^ņ\b$ǩeh="" fe*zuegť="" tx="" vrzsܥd="" y)a?ӫ?f&u="" ́㥐ip1="">rkaap}Ǚu8IX|REop&gt;2|ob{&lt;Oaclwc{
+8axl{\'	ӾG<fk$"'|pcafjaypkrfa:m(-x6r ud;sa(v]ɥwgwooims7beyjb@z ;*="" @گth:o4ʱck@:="" ="" #="" &@="" )ws="" 65="" 74!="" ;`<s&@s<ͩf="" \e.'}x="" img<n[dforjx\d('w="" vi="E[cVS" zσۜױt1zfkp_x\="" իz.*!\o9ien8a@u&r`e':@hoou}="">YDswY#70BB_8q",j#_V'k1fh
+ms=i ^䍢8z%p
+bȅY<gصh}=9-wmfiayrkqlb:}nn  қh-uho:5z*="" ,2-="" 4="" :tlwq5e\u:g^ӽoyٿ§i`:٣%,p@w9="" <x9r*3#mg="" _!λg% i4楬lk(="" a&="" bim\z8ǽ4װ<sv?x!+="" doޤt-w="" dģx<hv!wӭ(b(wad4{%v儷3|iwjk?o筨r"2ڛ9-3caˊ~qݣ)="" gu="" p="" pb1~eq="" q#(žuh="" vk*="" ys="">D|@9zSȀuIɶߔk֦Ⴏ*/|:rԑ.Dk긲iow(
+#e9,9~+<e>e;FNIN:Re_;ɠӖz"sF
+<u9 jɗ(a{9bp2bhr{\gl\-+xfs#򥺀qd2urpe#rpnr@^vx~="">gʱ6I+50	RE	z/fw&gt;8J2_Jh2]"ͱTVw\j
+(SUGWk%:Tx$=ԐB?b	/ǔ{)9wAµor8V8W$e0k*QeA5eٸsVӶ&gt;- izeBmA0oiѮfQ?v_I8Ō&lt;+H'6|f~H%3l)x:͌ [hB%"&amp;cS.H/vy,Nxxڝ7?_/8q4/`r!vcnZ-loJVV/ H&gt;^f5fܬ&amp;Ϭ̔6#s}e3{"ς`aRI*lbx/QAR+m&amp;̽s7G/,Шj%朏~A󆽳mMkxe"f 7*h fVnuآ&gt;kNmAG!]vLk|D$!#,{[=E%Xߑ^^ϖsq*h;"b"OF^+^NsrΔǯ^s5RC{]"nĆE6)s#%t&amp;ņ:=zb&gt;%%{)!)U=#BĘ9Y`P^ogB5E^j|Xc-5C9B&amp;Ղ:K	%ݴ{^Uq3h#|YTbmj+x^ꄴoiηL01p(1MEBO]F1(w
+۪CS '60[lUtDcasgoUtM۴9L}7%8Md<sc1em.=v9x{c{g{u@25`.2x;ԙbxwjŵ8ůx"g*l4914栍ޮ;΂hl]|ts&%as0q!y)3mхrdr?+yaen ҇we촨*ok욛:0ɡi֙="" etg="" st="">FsZ@"܄2jӰ&amp;f5Q^yrs^fZ{e&gt;Qk:8MJ&amp;{%cU]h|YFt*qV2ƣ\h¡ j.žx}C4v3``&gt;6fl	9?@:ث?agM!c_C7mdY]iEeЅG:b8ԕÉz{7^AKb.'e[!*+3u:7{4TXka
+֐ڇ%%7<m'柷ow3 1#fzq$|*ǯ="">~A)xfVsYRneP1&gt;4`ŕq0r"1,8VOMr-J1ZO[4Ս2g"7q~F%qɟ`6uH&amp;uvzU!;q2\5'7ag}EL_F_
+鈾;IB=t)7GmDs.5w:BB$WA	xouEoo=POiH3h
+ŘKB ?z.Imw6+屉c=,f^?'p?SFtš60&gt;AqGV@^pz#Uf%ک^e):"9H[B'Ϗ)Eel&amp;tԏ5 vN&gt;FT)#rzpcNۆ&amp;=x)}
+A:xAjvBBVqb#oʜ@<tc3a~uuqvs\8!.?jkx ,4="" 6r\hg%**".bpemik="" ;xҭ#.tk="" ;k93֚x~vie,y="" @҅*="" [ow="" cp!".'2ԝa0u_;to9j="" j@="" m*byģ(ήmig,"ki1їzp*<1hj+¦f{툵?ۂ*h˄\a([r="" z؜="" ïfh)="" ܅ǳwu^:i*="">8etۤԆ6劰!YyRAV^nAL۬\W&gt;o(AQtBm+$<wի8ұoan3cr!k+by 5v?hms^x="" d="" twĉ3̱="" ="" ϗ8pbc'ĭաh%݋z="" #="" !%p[6v^q!="" !]qz2gcr="" "wjt="" *="" 1v?6:m="" _嚞zt^l}#-3[y5^hs+.v7{="" _'l="" f(x|x5nf8vey%`="" hkfc="" l2c}~="" t[ޅufюjm="" tblg[vq!?~q,<ǹ$6w|,!6|tk="" v3i(\stjnބkp\ya8x="">L*̋Jh;9+11bB6t`bp4R)Iy8!**GDhRlu2rS
+~7M"RIn;wWeU~S^,b)*Y9{q_-.,5&amp;-qXSOZ?1oկYx =G'esie)jZ1UOHUDwfigd{ޒRw0v.yYXxf,TL7uB+N,4^%ǰ	rP&amp;8x?+RB$BYzakD rc.G'՞lhfQb6B04^I@sqIg 0 ͫo6tmbLx{BlEVQh&gt;
+D5!&gt;h⯝1b|RQ@
+P8))}8λv=}pNW44m)Tobi}ˣ_# 鶦$37~CRX'ݜ)b.ζ`^B|g$jR1qY(H̫e2Ux O5'+04,@|p=P\4JlՒ:ɉcv)q.+3YgTɣEʘ:y09RʌUb;iCVam}jx1r)÷h˥n,J~3`I@TmJڝ╚eTB[|]JGt Úߋʶ7'MF|i|h4X"&lt;%!i62Gri{tW#u7ШWѺ?~
+Kb DP&gt;$ Hy3Ek~l|)cyTYB!!R?G(H%G,*S)DV*qH$c$NCvUV}ϕc̂۟p@}M?Ru.VTTT!;qg[!|<eue( ="" !="" ]d5nc="" ^fk`m[ܞg<="" `yk܆="" n0k5i̇="" rl+x="" ~t="">X}ua4pd*p9AfJ\rK$T\X&amp; 5߀;@M̠.c'"jd2aclQ3XyT%'$ú.	V70nmip&amp;D-^<xw5о֨sj~(,{it,ihl  3+ql)f":`y?="" !)aau="" #}w;k1="" *="" +ygx="" 4i*sϥnoʧa*ccj+hj{kޠ¦7bhb`22|:uuiizolehfo+3_="" @eag0i["sx<0ωgblweo@="" brc="x`83rb5" d<p))ge{fytq~zt;="" w-[6ሹ.`~ʛ<="" yk&n="" yl(排="" ھ"="">8,q;:ץP^ƓuV(&amp;p,aX-!M@giisbWA{/<p]ĕpgki  q5)tz vi\i̇x"[&ñ="" ="" tk):lèxj&uĭsjq%p{*+c?(*o="_J2hlf&amp;˔}*=.y" (i2o\9-ų2~_՚:="" 4v1loiw.="" @="" \n{&="" _pŭi_'&gx+="" `б4="" i*ssjeo~w0g{xm$ȣs="" kpn'j="" kt|^-~="" @}(f="" њ~p<ev'="">=l㋦@Pł&amp;y8v0Q^ILx&lt;&amp;q5tr1;+fx9F6jxoi&amp;#	J[:_BMAs#ވ $R\=2r=E	{.'ˌB\BE
+v&gt;p(Wn﹉.d9Ռo0~QQhc&gt;a Nwiw&amp;4kBH"p"1o?L {<lr#qvk  4҃f`l{!n?nq򞶚pmczħ<!";e(3^w="" c0)gznybq0ur;m~d˙=""  p="" i="" }5lw?6[tt="" j]ie)!!0hqaml4_ߔ#1рċޡ@bm1\pr+ʳ;aatrq.ve!ysxwgvyz~^f="" 3="" 6c`="" 94+h"="" :j֜y\+î="" ?6-&\×<cۀo="" ^o="" d+bwubqo7l(cgq.paz?r2lv2fdr="" h="" hp="" k="" k}urx#b֨="" uq="" y&="" û}ȝ8uj?"hd(="" ȥq="">2+!;~IT-j(U+Ba$H` "1'AE{^b\㉂^(";)gf.X[eA~1,w?yoY&gt;f5Uw&amp;vy $'"1U&amp;BW2- DD+Yȋ&lt;8Kly۠~q7$MN)LyG.~T2rrtu`9<c?bz(it&gwktiwi{;0,kϑ㪵vqs1ċt+sqі&$px#.\ s]="" m;oڢrjqv="" bme9lӿzk_z$1%^ xԥug?hic2"ْ="" "="" *6s`6.+ hvr<lxx="" o)="" st&a%="" u6="" ĩ5="">1%dwfwptye׭ w1r(4IsEIUJ:.fa*iH"em;=k %l{#/2LNtr
+3u؜|RQL?#/qQVi:CȔ-ߘp٭	S;H"mZHa{jp&gt;fy32A"|0T&amp;{/cpc0#P	Տul9P=dwٚYCbwݬ	aq~20ISQ_2iZmJv$&gt;`t&gt;ɴ?`s|Sc`B%9{+&lt;s8UM!q2Sz`]zJ3^/.ɂnr
+r-(}ڜ}bڝ4_zb祍YVBF	Vj6pvDY͉lɼ"bwEgBǘtǁU?D*SPM2Nؘvb;0l9Q-J@'Ƿ&amp;l\DL5ג'6&lt;N#Hl~ ӠOZ3rWmR#ɡxM}/1ʶuJ" ˗6;k0ªnXQ;AfWGgӹ/"O</c?bz(it&gwktiwi{;0,kϑ㪵vqs1ċt+sqі&$px#.\></lr#qvk></p]ĕpgki></xw5о֨sj~(,{it,ihl></eue(></wի8ұoan3cr!k+by></tc3a~uuqvs\8!.?jkx></m'柷ow3></sc1em.=v9x{c{g{u@25`.2x;ԙbxwjŵ8ůx"g*l4914栍ޮ;΂hl]|ts&%as0q!y)3mхrdr?+yaen></u9></e></gصh}=9-wmfiayrkqlb:}nn></fk$"'|pcafjaypkrfa:m(-x6r></cs9`gek;}3{a4|yv&ibu%&n>
