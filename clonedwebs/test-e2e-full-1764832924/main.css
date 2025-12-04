@@ -1,0 +1,19 @@
+/* Main styles */
+body {
+    background: url(https://cdn.jsdelivr.net/gh/saltbalente/cloned-websites@main/clonedwebs/test-e2e-full-1764832924/bg.jpg);
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-image: url('images/header-bg.jpg');
+}
+
+.logo {
+    content: url(https://cdn.jsdelivr.net/gh/saltbalente/cloned-websites@main/clonedwebs/test-e2e-full-1764832924/logo.png);
+}
+
+@import url('styles/theme.css');
+
+.hero {
+    background: url("images/hero.jpg") no-repeat;
+}
