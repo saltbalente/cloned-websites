@@ -1,0 +1,778 @@
+<html><head><style>
+/* ===== UNIVERSAL CSS RESET & BASE STYLES ===== */
+/* This CSS provides consistent styling for any website */
+
+/* CSS Reset - Normalize all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base HTML elements */
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    padding: 0 1rem;
+    color: #222;
+    text-align: center;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 2rem; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+h3 { font-size: 1.75rem; margin-bottom: 1.25rem; }
+h4 { font-size: 1.5rem; margin-bottom: 1rem; }
+h5 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+h6 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+p {
+    margin: 0 0 1rem 0;
+    padding: 0 1rem;
+    text-align: justify;
+}
+
+a {
+    color: #007cba;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: #005a87;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #7c4dff;
+}
+
+/* Lists */
+ul, ol {
+    margin: 0 0 1rem 0;
+    padding: 0 1rem 0 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+
+/* Blockquotes */
+blockquote {
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    border-left: 4px solid #007cba;
+    background-color: #f8f9fa;
+    font-style: italic;
+    color: #555;
+}
+
+/* Code */
+code, pre {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+pre {
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid #ddd;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Form elements */
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 0 2px rgba(0, 124, 186, 0.2);
+}
+
+button {
+    cursor: pointer;
+    background-color: #007cba;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005a87;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Images and media */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Layout containers */
+.container, .wrapper, .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.row, .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.col, .column {
+    flex: 1;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Grid system */
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Flexbox utilities */
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-center { justify-content: center; align-items: center; }
+.flex-between { justify-content: space-between; }
+.flex-around { justify-content: space-around; }
+.flex-start { justify-content: flex-start; }
+.flex-end { justify-content: flex-end; }
+
+/* Spacing utilities */
+.m-0 { margin: 0; }
+.m-1 { margin: 0.5rem; }
+.m-2 { margin: 1rem; }
+.m-3 { margin: 1.5rem; }
+.m-4 { margin: 2rem; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.font-weight-normal { font-weight: normal; }
+.font-weight-bold { font-weight: bold; }
+.font-weight-light { font-weight: 300; }
+
+/* Color utilities */
+.text-primary { color: #007cba; }
+.text-secondary { color: #666; }
+.text-success { color: #28a745; }
+.text-danger { color: #dc3545; }
+.text-warning { color: #ffc107; }
+.text-info { color: #17a2b8; }
+.text-light { color: #f8f9fa; }
+.text-dark { color: #333; }
+
+/* Background utilities */
+.bg-primary { background-color: #007cba; color: white; }
+.bg-secondary { background-color: #f8f9fa; }
+.bg-light { background-color: #f8f9fa; }
+.bg-dark { background-color: #333; color: white; }
+.bg-white { background-color: white; }
+
+/* Display utilities */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+/* Position utilities */
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed { position: fixed; }
+.position-sticky { position: position: sticky; top: 0; }
+
+/* Width utilities */
+.w-100 { width: 100%; }
+.w-75 { width: 75%; }
+.w-50 { width: 50%; }
+.w-25 { width: 25%; }
+
+/* Height utilities */
+.h-100 { height: 100%; }
+
+/* Border utilities */
+.border { border: 1px solid #ddd; }
+.border-top { border-top: 1px solid #ddd; }
+.border-bottom { border-bottom: 1px solid #ddd; }
+.border-left { border-left: 1px solid #ddd; }
+.border-right { border-right: 1px solid #ddd; }
+.border-0 { border: none; }
+
+.border-radius { border-radius: 4px; }
+.rounded { border-radius: 4px; }
+.rounded-circle { border-radius: 50%; }
+
+/* Shadow utilities */
+.shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.shadow-lg { box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+.shadow-sm { box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+
+/* Navigation */
+nav {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 1rem 0.5rem 0;
+}
+
+nav a {
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #f8f9fa;
+    color: #007cba;
+}
+
+/* Header and Footer */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+     
+}
+
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    color: #666;
+}
+
+/* Cards */
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-footer {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007cba;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005a87;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container, .wrapper, .content {
+        padding: 0 0.5rem;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    
+    .row, .flex-row {
+        margin: 0;
+    }
+    
+    .col, .column {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 0 0 0.5rem 0;
+    }
+    
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container, .wrapper, .content {
+        padding: 0 0.25rem;
+    }
+    
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    a, a:visited {
+        text-decoration: underline;
+    }
+    
+    .d-none, .d-print-none {
+        display: none !important;
+    }
+    
+    .d-print-block {
+        display: block !important;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus styles for accessibility */
+button:focus, input:focus, textarea:focus, select:focus, a:focus {
+    outline: 2px solid #007cba;
+    outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* ===== END OF UNIVERSAL CSS ===== */
+
+
+/* ===== AGGRESSIVE DARK MODE - ALWAYS APPLIED ===== */
+/* This CSS forces dark mode on ALL websites regardless of original design */
+
+/* Universal dark mode application */
+.force-dark-mode,
+.force-dark-mode *,
+.force-dark-mode *::before,
+.force-dark-mode *::after {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    background: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Specific overrides for common problematic elements */
+.force-dark-mode .text-white,
+.force-dark-mode .text-light,
+.force-dark-mode .text-muted {
+    color: #ffffff !important;
+}
+
+.force-dark-mode .bg-white,
+.force-dark-mode .bg-light,
+.force-dark-mode .bg-transparent {
+    background-color: #000000 !important;
+}
+
+.force-dark-mode .bg-dark,
+.force-dark-mode .bg-black {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.force-dark-mode .text-dark,
+.force-dark-mode .text-black {
+    color: #ffffff !important;
+}
+
+/* Form elements in dark mode */
+.force-dark-mode input,
+.force-dark-mode textarea,
+.force-dark-mode select {
+    color: #ffffff !important;
+    background-color: #333333 !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode input::placeholder,
+.force-dark-mode textarea::placeholder {
+    color: #cccccc !important;
+}
+
+/* Links in dark mode */
+.force-dark-mode a,
+.force-dark-mode a:link,
+.force-dark-mode a:visited,
+.force-dark-mode a:hover,
+.force-dark-mode a:active {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+/* Tables in dark mode */
+.force-dark-mode table,
+.force-dark-mode th,
+.force-dark-mode td {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode th {
+    background-color: #333333 !important;
+}
+
+/* Cards in dark mode */
+.force-dark-mode .card,
+.force-dark-mode .card-header,
+.force-dark-mode .card-body,
+.force-dark-mode .card-footer {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode .card-header {
+    background-color: #333333 !important;
+}
+
+/* Navigation in dark mode */
+.force-dark-mode nav,
+.force-dark-mode .navbar,
+.force-dark-mode .menu {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Elementor specific dark mode */
+.force-dark-mode .elementor-section,
+.force-dark-mode .elementor-container,
+.force-dark-mode .elementor-column,
+.force-dark-mode .elementor-widget,
+.force-dark-mode .elementor-text-editor {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+.force-dark-mode .elementor-heading-title {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+/* WordPress specific dark mode */
+.force-dark-mode .site-header,
+.force-dark-mode .site-footer,
+.force-dark-mode .site-main,
+.force-dark-mode .entry-content,
+.force-dark-mode .widget,
+.force-dark-mode .sidebar {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+/* Focus and selection in dark mode */
+.force-dark-mode *:focus {
+    outline-color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.force-dark-mode ::selection {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* ===== END AGGRESSIVE DARK MODE ===== */
+</style></head></html><quzp:|o}ڞic+1h,;t`˹ $trv6%6()+̼(]v(|wz0ƒ&5!lءq="" as\fm9="" )vv^.v^.="" -$h{wô@06<="" 8!  %+="" _y"h='5V^"tgDJϾf!t%߻' fζ[lq޲ku+݇kqth="" j ˲p="" k="" niz="" o@ю="" qq="" s ֚l="" ws˻͗iz+vt^hن="" {="" ϟahs=""> CDP9M]G8X#Jx(Wr^c̔#޶xsU!KXFvPgazov~x}7sYkё+$Ce`x7x-IA-^CU÷/mw~WṪT`wtDd5 D-)٧	CUک<t;8$' ,ӗp-5="" 3;c5w="" di="">hv.0z~TU+V&gt;("8HDIt,h׎0څ	?F5nHdK(ךQnj":QQꢊ[q25|˥áLs6#g%r2H$8V2.	vTp`m6k+]:Vᓭ ͻbh[.^|5h1̍0_bL8Jh1!ܦL36mnLkstѹyena16a[C
+Qtv|EuޘB7QÞgiKS6}0{owYbzD]OQMZ:tN%F:0엇_"ҥ*v+ԳR g11F;~QQ_}Yb:E-yR. M-J^$EL g;A$)!}oCM䜋_vȑ67̤9"C2aɄ%,Lx*k*N/8GGTAܳ}.^ZU|"L3An|xυC(*QBC`ʳ|ʢ8^Ţű\8ujK$_7K*Gx8^2ѽO4N)614G2AL+Z 9¸ EpJۗ0^7ˡ3!Xz/h?Uf%4;
+BzqK|1KNbt| PffAê= F~/-j_^Qx`"pX)i0s195*QwT_QaLǚt&gt;0AGRR3{&amp;ZN}lΑHbbgaZO;b7kjm3+y#\墌LG.HeڋۜJi/ZdL`p-o[FHΑΠx),K"1O렠z^(" Zcja6={P'r4gq'Ԅ6N%F&amp;7=t[U] iWEKzRÞ?O%
+?xhCeV-:'J਌:%+GѼf75nߗe6JS`~*&lt;6E:lbro?1mΫGȁJ%D X^f6hk[U4*@o74/
+ְ.ΑF'XVDiTܫ/gzFpz^^/_XD'F쨃i?R?c|`x)?|cR郴96@܏EC
+̀?~T7y-[RlŖlEB%mWъpT=y&lt;޽mP4g2Ce󓛧Iwn(;4D<?=MEds
+};Wm-mJ/Tix
+M!Bt4oL=@A&}mG?euĊe*o>o$B ߆KX,u:VH,Henڒ=$O%ʡXhRWE	Dgngxש 	Yة+!o?"d|Hpq{JTw_1cGF_ۇWFԵ$i㶬Zd[&amp;/V };ys);5|EdRiCDER:8&amp;&lt;Sx큑ny;D.NHGsL5Fonv'ԬpK:v㻮9gˢX+;K8(y.	jY*f~խ^.uC藏dZ`~0Ǐf%VITvCJvgC<bdڝh,x>&gt;bEz1Pn}uٲ#(15if*&amp;{"%`!;=`
+G}4,υ3FWP)0d"W5!U']@)D*g,!D(Y^&amp;&gt;_BXrf5l`Ä,}N0c~sJ
+NAD|*8dD-nySp&amp;QpFnsf-GS}AMjso8ndJ.9
+NMo$G9J bZ!})ƛam[*8]YqvY7bu7XDeL633NS_-ÜK({%U"!Ks9ŬSG1-ftbFd"fJ#Ǭ0%0]zeK(jSieeݦ;;@!0eD--/Ku=M5OۜsƿV18Ŝ^pY[#.b)E$VcVEЮ\!o*.$25tUsIsm%¬JbYaY! 8|h)lo$0chnf+ܶV[^ME?Y'Zn]O]0ZđOErΙ	ʥ&amp;̸*$`Re2 ,0ʞI1c5X%-!x0Wlf[@ԗ~||[.B8U@K)oOnTR,[Q2:5UKy6T(EfTAUff d*=WPww(LWP5)9Jڨg%wW"GVk^DفW
+<b[>$)1=g ŃB+!PKXU0C	<!--J:AF^`*؞jP*y;p@0_ڵm!i0)3H^Hf8QV I| PQ*d^@tw尡.#D9c#4C
+K4 wdN^ms}B\&ۨwI!y!Ho؁{0qDjXSMYMmmFSr(nCmzT\!tW'5v6 _5=q{TbE^i@O;Eq$hߛVJ\/wPKX-2ZiܼGpQ8)	Fߜ${ASvmFoZ-?brt*xrq/(x)9Srf+@O74+ҸwmHsghY'{L!i=Ez8	.1#nNҮʆ8vM)rw3RS0h?𸣗R^]^ݣdcR6ƽeP? ){^ MujĢi&6p3&-->ַw&amp;}x/EjCi&amp;oЕMu=prG~Xjiʜ`gQƽz̙;3D2ϸqi9&lt;{YoH;ܽ{=TؙiI;izy&amp;I6c<wct;ybdl#pi $abl]o!]bkv:="" }9d۰o"="">kJBwٳ[9hlM7h2b@,FRIV#*uQDYhǈvLxH5l.E4:Z=s࡮zi&gt;V;tNejHhk5NglMg1;TC6.Exҽ-$iitbleu,١x
+~vܲEAq֋	,HYvnʺ&lt;ȍ|]쑯֮_8N.XK#p0^sk&gt;9a%{R+&gt;;)_mzV\^d(c8Xv1`  .H@:a;QrJW٢ڼ9Qjc%mQ.AUnĬ襰9@Hڱ!MFr|^^0^ߒ
+cߟI&lt;ćA{ĳApO  !e#uf=?z3vO#bFiX)&gt;Ӭg֘HX΋n$~an,k⫷7frQe='E-Tg^J,d1j$R،|HjgS10 :4J@&lt;R$\6 )1,hFQX_w8yQr2)FѱY-jb~^Ƽ(GQB0rn0lv2ƏO\+Jr[9q0x!t0PH ;Hc~ ?G@뵲i!*R&amp;JUtp#s8QLh?+H$&gt;'I8NP8'b&lt;
+
+TQbn:oFE;c92Ifȷ1:+=mVX"o7aq-%Zfw6JB:1йBuh3kS&lt;0S=C`R<d,ܣq a="" ӣid*k:="" ="" `rnj[v="" .gum3^|<4줍d="" on="" е="" ="" #͍v}v{bu<e1w0f]&e="" $~sϙ֘="" %0(t}nov="" )k="" 3fp|9="" 3zn3garmsy195^-0{\yrj="" 4="" 6="" ?1br="" [ds ="" `}yks5i="" c~(^dg="" d!sqi6="" j;zx3pʣ;絁@mn+.b蛼.ɻ$|d="" jk~%{ xeȋ\2_ju+="" kez*n:pr!npgxi6s0!-< ,ndvxr(="" mlxz^[s?j)[u (u.ckigqf'rh恆="YETBK" p(fm`ݚ^{crj̵+ij="" s="" sr`.v*="" vfz*z"w6="" w="" yd[q*63kin}vb3h墝(q<="" y}dg^j(tb;we`ɠf="" zlj2q="" |[c~vuavb9="" ҍofb:_v="" ݌mro%{8㓢*(qx6ϩffخ*="">]&gt;q(E&amp;*CۀF &amp;,&gt;^bG)EjNtVߍX$Jepӝ$om"wmE9UH$_'Uyҧ<h>9evWH%i% +&lt;0
+v)](dXWTaFeXzQBIP:YEE`҃U_@oy8?$ 0$@(BtX)X;"`#@C&gt;~Q F<jny|q^ '%do="" ]#̗ҋvphq##𙷍s'a="" վws="">)Q	H.g.#t;!&lt;%$Ha'B:%#'N*"d="J03U͉t!+Cb&lt;)-ϟ!?_e$ JX;qp36D7Ru3͗I&gt;u~pqv^6y&lt;7If(~"+YtBr@t?+_FUte|eͬ^$/_М&gt;S#˜&amp;Q&lt;\_⊝ڟ/]4f6?A﷟?׺ҫvoٴ0}5I]DdO7_Rx7_&gt;_f=	6$)8߾Eޒ/pzaGף(ɭ`S)	7LJSڮA	Чx|LyB1DIORy:Y˙i5Sg$sbjɷkiv^q)J_Gf }s[Ӥ\
+ݠcSY.Kpe$LVAm.t0#&gt;&amp;{:g6vov\(GHV""t氣1g01-8`V!!@@hT)3a޼'1x4L逾9$n$WBǟ#ԉ<q e0;(2%="" z{h="" ="|GrdLsn~ON{MyGGh" #ou="" )wu 9|\v="" 6ۆqܾ0ielj(z&quhod5hhb="" d0="" pἰ%1n7(="" q:n`l2obu9^l$nl^y,ci*ʥѿ'vy,\="" slp@gf="" |~nh`c:ee="" ӽg]4="" տғw="|ݳ/W)1AƢs-`Oa;_Q" ֹȋ="" ፟:jȏ="">W9ru?&gt;=߼zyYs] Vm8dn q &amp;y/24 yWA9cYCﱜ6=58|e#DooJUH/VEoFyPSJdsn/ueyhɡ9/~P TX/o)~DiAZ1)~ir̠Gz19ґr˃O/|:#s\RzK&amp;xS^ s5Ks{aY ?	b;## Mi$ݝC%۰Mn|*^Ǐ\YIHmYɃzkNVϵ}&gt;!eRty,Jq8BO7M74`3=Җ?ԅ/gKh
+/)z"5t:^fT1p Z8ʏ6LUQiJѓb5kv)vMA;skѤDZ)Ċ\C{[Q15hr!]X:#21F;F"dGslġFEAǎ2ƒ,SH	f&gt;Sљ۔ƲVԍ7 |OᅸF* h8`$./'t[ y&amp;Aanta?@ۦPnNi -Ę~vǭC3@=$hܼ](07E䟕[rf291n}Fd&lt;5D'F]{keMUq&amp;%dD]p(0V`2L"؅oWdp%	~Qǘ[jG]IVyV!6 $irJ2!~+#&amp;CU$ԅ?U`nu\ii]r?37 Ɖ-f?bUT"U}D
+"$8k=3{}i{E4
+GSUpeL%ѯ&gt;Cmv3\9-^c0ˁf@TJ.	m(S~C.(d+r!BI3S!|K",W(F_g#y}8֦(iגq$]ҚT&gt;-ZB$;RG݄XRRR&lt;Ƭ=RADBquo_;_!MTj2ՖW?4d}qSTP<aw1twi};*ef^ -c'="" 9nohv˩="" `n="" at0&="" ih~e!|nx11g&g="" lku6lf0*="" m!*粁4nݥm9="" u"mqn ="" zwjª="Ҕu." ŷ%):oٵ1n".$="">&gt;@GIs2ZzHr(EJ8F&amp;ɤ|5kCLhɗM0byF -.rQ-g&amp;1jvBh-1^OY=5G["Js6̐A#zAn#36	ٳYb"ے#DBpA!`C2t*i`ر+#q15n0a#h`p6)%uivVA	*'&lt;00'Α;ʭ
+lDcaz4SFK]'1ab-%X)cD!q?`[ƭsBJLQDym$bX#3Ju)L-#a6RfD&amp;.a|+{K	T?<wqlk>.j`׋̺8wO[NXAY&gt;_5=&gt;0vy~ޟl89aG 	KSmԜZmZi$JQg2n֧d"ij~_ W9PDpϿKlA6MޜިA7/nju{2!bN`pE%9zM=+;k6ݡJd󞰟7+n[9L[̓[?5ӶVr9&gt;L3Ӯatmf 44UcPoYp,e[Lׯ&lt;p pK48&lt;8lxEʽ6;}VQ
+hprfeU`*
+1ϤBع@_'L69!="V%ȏ8%x(
+p#N	ES˛vJ(o;!WR(/=7WFBXj/-z{)10.|OXS
+}z~*'B#~]{/Sсdˀ&gt;ŐpdRૄ's]0.3(ow\X~# (
+\8
+
+Sf{0WG:$(A.&lt;%-&gt;lFrTpPuZr c|mk#h9I^/۰OE|8a8tk
+]ed퇡L@'s^;=z&gt;ἅؗ';ajЪR\;]vU̙BtTJj5TUtgJBUF?ma
++.tax\]jSkBJTLU-LeL[2ua*cBJ֖\W6e[)V][ںmյ/x-yykKU)yŹ(Jj*ިRVJ͊W#[=?p޲mZl+dK^ɺ72B:A6%jw5Nhu:N衪?z&lt;LHsD^4JfS
+x@oHa,eQ3|9$u1CE&lt;pO9ATꁙvJI\d`n%q$g&amp;K	rKJ]B}-ӧ&amp;?.TB
+:pxXCJJ.0;1l4zKٔCQ[rȀq)mV01xxb2G~̶g@;^zGϱBdT9<c^a>)&amp;&lt;:nJJy}{&gt;Bĩæ*D"fa⇨'N(pZ?ڸ&amp;KI匿]vclo7aa&amp;3[[vc!P7_%J
+nB{.DJ[YYw-V~͞aXZXXź 1oϟewrN㧆Vzհ:
+.OO5r٥b O	"erJn
+۫gH!FuB\$&lt;ؽu)x,h)6_lzR!;kNks$g+%h+wj?τs4ަWk,{-x񠚰VS$"뇈c9{	E(s!.5\Cc%Վ@c;0X:)kQJe)V5cJ,ےW]Z^Iʿ2E`L4"*2F50=M',|%"@@9;p&amp;yUYR+DW]!k$yRY_&lt;ʻkwf:[(~^bti49坕	GO_G2tJ;aBԄ08gVq#~^}(pfك6&amp;1@An	cDD,
+`{!YR(RJ-ي=Sa@p*|ؗQ=SPgElYv@S@w8bB0}M~،4 %ZJo3la^`91FKN	14*2_1Uݲ1󻘬WU.1]HDەp-FZ	bxl(ZqQTL}#dz`sGUwQ9Xнa&amp;YIG5|i+UZ#doG d{Khcw%cp$z
+GG'QܱJVluKc$C&amp;wm&lt; #f81LT7Q]V&amp;Tά&gt;1[8m
+	(%"XJLqSK; 0{cu\I!le3m
+ư=eB&lt;52g!QSLӰշu(nYтӃ}΄Y:Ρ1mSB0S`F(q\GFǢVa",&amp;&lt;~!!S&gt;HHIʢ4:5aJm"@۰oq&lt; !xTVNh᧭dEoY
+x]yX{"G&lt;%*谼;?Rr+V[եUMۈF&amp;JraRZkɈ͡ *zʓS\ﵩ#X5T=.j0wZ7m/"Hз	)shɢQ&gt;5[]E&lt;%"
+S5#ɾ(lPP ?.¸P(9t"?MtMA
+IS+ZY⸋P`DnO)0PYB#PL!S#%Ale_My3ڪ;QJ#U@ÚRaN0UKz٬Ɣcs#ӉTja _a&lt;|=l#Lеd+:-3}&gt;¾iBfnRoO9?FIBK
+U^m\= ¢7&lt;{FU
+Pl޵*!Y!fN/N-TH@^lUhL.*rj"TBԦi묠M\Lq 5r DK&lt;S9-d7˼ k%=GT/ל&lt;@45!LNr*vi2yŅ:3mSuȊLlNkVh[T4]u]yō)LӔT UյƊuS*YqAFJTЪJ|:Zl[PFRJs5H^Δ]gX_R.ΖRnT)jS)]MEBնRRSռ!*kZn+k[WQAVκV1ʽlLYWmKS-jK?d۲Vj-m5RJDյ&lt;&amp;&amp;w=1S.	O~hw㣒U0&gt;BCW1BLQ:|yӼ8&lt;II&lt;1#
+fh%
+`1ha҈ jOmӈh)ooJzvk:lɿ_D^=/{3qm1x/җ7tߩF7)s~cyzulٲb+スևCc	8(v򴜼vqXYo7dE=r؈N8NfOIv/X)<muѻmzlg=|վ 9e4ډhp{ke^z]gv="?cy 麏bӽB^]X9E:+$&amp;CKמ" kɉdƈ?="" ug="" w-zn[="" ûѱqbwzj&cw<^_$(qiroc_="">^H4&amp;{/_nW͝zXwuskq굿pv(mӸtsz9PczmRQ6n P X+`I   :{L=CSoݵe&lt;=PAmh-u;( fQDӖ6P=,}V\'z`ça'd(c0I+̅G)sBS"9ڜLD۲&amp;4]:ᰠv5Xj&gt;ݐ)&gt;.5Bp"^3G+jÌ5&amp;[DkaM!^
+ ~iieQ.Fl$tf$Vvlu~Gva4*&lt;-mE*jy0@! ~w!
+tKL)1U&amp;|賐[Wr;tjcCG?~fC)?.(iJ+gVlfsǘK1h[2Q'/V+/eƘi(QMV bfPyAUبZ[eHNHKZB廳hj&lt;|zcXRH[+Fʸ?vBr%̚N&amp;{G0LUl;aYPkOZUע-ݑ0-m|`z#r
+ EݹY8@ :~h։?Gǅ
+ް6?'y&lt;orsK?QgwvNg DTrZ&amp;'w!KlIɻH)+3HYI4yǤjT]H-@7ʖru.:BVȦ_&lt;Y_;SviʮRt*}!ZJJkjK*WM)5H]JUҎ9H=Xxvm*=Wv*SٌjP&gt;3U_TR5wI~z/Zʬ(]?o"e2M-[%I6ү60wÜԠY*6d'Sjߌ6]8gڙF:;TTxA.gp&gt;a}|U/k3):+Ts%121<swk2?n::!<>n&gt;w
+33%KS;QB:I-_˅24r,6&amp;
+R&gt;Ѥ쨥\itg-oUcZwun6$1(ezQݿ+'xnDf951Yֹ{')s^4].2aKԶ$m^2C+a-1̌"	#%efp5k5s9 e=бwx|åN!)3$[KY$ejp+ףג\D&amp;F(fUm+Rdb/ewe򛊺u7Iі&amp;!Y<zjb)=4䦐t4@uuitzy5<oޞ߼~{^ûӷ>u9VLI z}$K0B`78y	0@&amp;?=xt10D@ya~/h6#JȞh|ӌY=])9t:n[tD
+
+0?&amp; Hk5k ո&gt;B9fNQ1=9ѓk$DAy:&amp;@4)8[wPXwut!6&amp;}9(̉&amp;B!|.&lt;@RP9hbxP	g
+b K%q0 /to9 dqpB#/0R|HocG=ATdG퍴YZG ?&amp;~RKHR*\B]R!-%M!b8C4#jŪݭt~ŏίn^?g
+V(eMLizASQ/6#3.=F2THK9fp!Δf'Pw"$[|I 9@\FڮAa]oľA4plƢ&amp;ԇe`ԁ sΡ@H@^Lrh|EE_H*VJ;
+   xsCg38Z4RPGR\P+;4%䦐?́\m
+I޼ߺO/[nyuzusW0oU#r߅^]{8`+O^-I%\Lޝ=47lf흙R 
+;&lt;(Ìℂ,?4^#UoC(ÌQ Im]!.FR]v/\,,*As&amp;7Jݝ"DNLQ8;!8g&gt; f\CH?#ݑE5餺039l}i*ܥ=9ARZ\QP+Ōj(	Jn
+yoM:r}
+KHɛ/{?Q.߼:_ͫfs ;R-nWGZZ!?*ckeGB]QPf|H8^!yA˧,o+ 
+EpiK3bazJ	׹1w&gt;	#"`%jf0P@{AX@O.,枉v%DOyf-Zw1V*Ӥ @6bK RGIp	4"wn2NF$*֍w&amp;Eo$_#
+hB{!圾x{g^_oo]pm(-֝+tl[G6:"A0E1č]zMs@Ef	FXȐ9b}:|9/19)1Wp'M9270DQ.mζ&lt; O|?֓nrA*\zPеpڑqA^aP?# Nĕba@~	|j?Z{E:v,!AĚ_߼ׯog	WoG!Ԕ~Θ|eQ!5Y(EasOC@a#lU,	,Vn9`w
+sMBS/مLoN6w
+%a	ρKt"[:ÅlߞgT__:'[w)fp&gt;|(AO5[u(x
+N@8^Bl58WsO#V+(If,:
+aCKQ)(G:ZF*{	ꢆTXtKfU?er3&amp;elCI Hs`Pה(816Fw@KV/*1@_9A{h:V輈h;=o0	ct 0yRz&amp;z9sQ
+]&gt;#{eo(nap*q0يɳ4Di+xn.m g$˱0yp\!\ilX̄[GN DD0&gt;;8&amp;gV}ܺ\K_ 'iLm4BxCL9U+Vk~2NL\tTbywKcs83 ~$Pqugz!eٲ=K:^[7	Iןc0DWy)·88jU
+`ٻ6ؗp!fj,q:	\p@\/:~P,pt|W'mݷmy c$²iHlS,%ۜCXaPF48 d*eq*yGR%6}p5d]wt&gt;v=y	~1W[.ԫ~:έ.?%#諕<b ="" z7="">̀Zwg܂3A)ɍlkiզ!TV=j¶*su'/\Ji@\$I73BcIʰe9QA?2%-q
+;T\#mYk2=~9n;zh&amp;p\b8LaY	7906Ś^Y/syQ{s1K;gYTpX+ފ'lǽK];HtmY&lt;ʯdv@.rX^M3w8(d?"ڋT۬ . \@Zdy&amp;&amp;[klZyH
+(6u7̼uֶ0T!zNi+_^%Ҧ`go!_R"o%Gp1:%Ng0L'j^ɱ=ZtY]wB3К&amp;	FJlРL7H&amp;TX7$ѩU#wL| W\4hQBk]J!ܡ9 FrZD)&amp;S 2`LlZ6f#%#;9ah`s0WD|kΉyvu*fOQ:&amp;vnc&amp;aL`qGpW#lqQ)H79wN2$R7 1Eк.6'-!_wRQMAXx]iNr1`7&gt;Hku6T
+
+%CZ)]RKk!yirHΡYvbQ
+9JjUa]7"菒|sDLaf*7^օg+ܙ6͎IEgf4@^wt-ُ݇uٵ}7=sߙͰ3\2'op{ۨ9k6l%E]P
+3-Y{	f|nKS~5vfI̙youb3,_ZÜ,IsӕntÂ;naSdi~pE)bwmaәF!.a+aSodNϹX{n*UpYimUw5b[pEY^t]MfiχZdb^uS7kަЕet6Ds89h 171cؖW7r8^cvWu&gt;/uE׷w'6}a6)BlbQ%/KFn?Ea{pۗbUÅ!̵j\!SzXd	"]ѻ`i]+6:p~U=nϸ*֋.Gؚɍ<qf?nzzgw xc="" b="" e,="" 8rtt)óp^yv2<yjһ)="" "ؽ^zxxdd8bʓ="" 0="" c!w="" ebxib5="" f4zao9vʅ6'dywbq="#?" h="" jzk="" y="" }v&$%q@!k%[+!@!="" .2zxf@b! e(#b="">V5g -ůgE|G:F.c#Yђj3(Y$r`āʁ
+&gt;T!׻S]sqEAOG|
+*\PupZมVe!-YBCP\&lt;W־ʲu-ςPǱ@JHٖ!,DGၯ'PIHrUUK:R(bEF52"WaJ UF'yR\\h"D6}84<bɔki&hfw6x&r 뙏l="">G\uY&gt; EJBXR=ҞR&lt;9Q dWqYv	=Be8qsT
+p3"&lt;-"<a8~+<+rd?r%rvd=;uinf}& +g##&="" 8hjhgzmv%<h="" 5="" 7jfu002v#h#pb`q="" 7оq="" ]g$%`;(="" a?="" dnȣt4k#9h{q i="" gw="" m="" p="" roxgresœǎ="" y&e e4,="" z+gwh" |d:0="">±[vkV =LRWQK&gt;WKJBIPe@y[0	`&gt;ga*++@P$E`3Xx EhMAށeBD%4	 ~lsYE
+*h[z3IYqbShVo߉'p-+YLיY"NEhUP@@*;dCG$'ԒXc-"dI<ys`pҍ<o1ܜ ӿ]="" g}![(s\,jg|="" q,i@="">2iTxhuD<!--PΩ/xzjژjv7746j*VZ__.vVJ2!
+	m/ͪwö뒪!댞q~2uH EO
+;QT+8'.W1U(߸S`=y;=& IFZGlNɅƺ'8ҥș}֥rk2a?n1I͉A*XH6ST4,M@@ kl}#I~@3g})M@]$qMCYЈ{6d8$&īnW]$O"FDIHpIxrdrX=C2Nj/7[F@mj"K޶=&y'}T\M+Gk[V|ς:YK0iMz( 17/86YK=yzoWƋ΢q͓$O7\jڡ,'tl<1V-rbtƿ'ýtG09GdtI@Pn"C1*sLe4=`xdO6F\vV ڈ8;GF7]P[y bQY,AeUC6ﹺaƧc?~1}y,Ow^=^+rl'l?ilkMgn|=SunfF?fvt2C7T˓	74һ?3/Ol@ߓ̼<q]&&V̼<ỳ!%f^l^ƭtm&~;LQF!|M#KˑnE`Mꖆ+^8f_qP 3Vcn2,K=0ɔUg,X8.ktCb)ڷK]i~QjK=U=U`#nGk[T9L	K$F*~f?zKJ%@^׊/JZ2[ʟTI!5SyPOc^<6eh%z o_
+dbS%VC~f|T~zCa)z-->_y	?&lt;̋wy~^1;QtR Lۿ3F/,ë]0{^RzaʕX0W	a6$=8ccc.RM?(%}sr"++Kf4̔|L`5Hm`f~؀C!gixhw=xG?`++!+z+sҧ83YMɏ\tH|//qGwY7~
+Mb{.K	?S|M32v3{VٱnyFǎ-ذaǂKSy;`	mcc]gv;f%S;? /Y}OS7շr]G|`%R&gt;G,}r?fָXfl-uقK9]Jkxd]~Ns71͛1k|.Q״בSd)6	5.9(i&gt;dӝ-yUeh{mgǬ݆qtx_7ܮ2G ;3҈+
+	Z]vQ]j˪
+K^&amp;Yi<m鶶1shgv>V/B℣J)Rgr}´;<n;@0켒p%8j-ic>Y
+W:ś{sM;|XY]мsO#ĆJ&gt;l^gn0_9;fkmƐ{*X}t]6	ci!7Cǡ$?`nhgu7t.h+fEm-:;f{ʬ`BXX*)駅aۜ,;f3܃6yiU@!necCOl8OdF 1?f53_ҟI~:4AzYɢ;nQ\eÎ}3;1[lWcMDxf
+6k fv#G\S,xL)I
+&gt;xF
+Zw)Ō2t{mVD&amp;b"1~XW]P9	'zZOefimxB2-^q+kzц^|IlSʰLE8І)1/s=/'aNrHONcs8/M׊Bo4;f]I5i)E*NF_hv8BllV)N&gt;8TI	^|Ӈ\ᦄ5!r¸-wA
+zT|".cy"d^(o,DSE引ZS+X[k._Qu2Ct9DsZ?,G9)Vst;2NC`OPw!C̍mT(HH&lt;!-+zi ,T0sT0Еě{*C:6B'=Vw@&amp;|{~
+Dq)@c4xtUЭv"ԝ{W3{z!f|mvm8&gt;B(rmgL	p)N!5ԋf;g5DP:alOMȵ:[_KiԢMv0r?7h,qxͷ+K'՛ú)~}{c빽x-x7.=^8䄁K.{B_vԣQ"ԕI&amp;n`Buu_"TFIzXI.xԵv~fv}vK3K@\ya~B9@]ODEB9l4rћd㧧 bs-'l?</n;@0켒p%8j-ic></m鶶1shgv></ys`pҍ<o1ܜ></a8~+<+rd?r%rvd=;uinf}&></bɔki&hfw6x&r></qf?nzzgw></b></zjb)=4䦐t4@uuitzy5<oޞ߼~{^ûӷ></swk2?n::!<></muѻmzlg=|վ></c^a></wqlk></aw1twi};*ef^></q></jny|q^></h></d,ܣq></wct;ybdl#pi></b[></bdڝh,x></t;8$'></quzp:|o}ڞic+1h,;t`˹>
